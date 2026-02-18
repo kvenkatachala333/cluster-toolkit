@@ -68,7 +68,7 @@ steps:
     REGION="$${ZONE%-*}"
     BUILD_ID_SHORT="$${BUILD_ID:0:6}"
     BLUEPRINT="/workspace/examples/machine-learning/a3-ultragpu-8g/a3ultra-vm.yaml"
-    
+
     # Removing reservation and automatic restart from blueprint for spot VMs to work.
     sed -i -e '/reservation/d' -e '/automatic_restart/d' $${BLUEPRINT}
     # Injecting the selected provisioning model into the blueprint
