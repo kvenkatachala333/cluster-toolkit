@@ -71,8 +71,6 @@ steps:
 
     # Removing reservation and automatic restart from blueprint for spot VMs to work.
     sed -i -e '/reservation/d' -e '/automatic_restart/d' $${BLUEPRINT}
-    # Injecting the selected provisioning model into the blueprint
-    sed -i '/settings:/a \      provisioning_model: '"$$PROVISIONING_MODEL"'' $${BLUEPRINT}
 
     ENABLE_SPOT="true"
     JBVM_VARS_FILE="tools/cloud-build/daily-tests/tests/ml-a3-ultragpu-onspot-jbvms.yml"
